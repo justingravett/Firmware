@@ -54,6 +54,7 @@ pipeline {
 
         stage('build sitl_gazebo') {
           steps {
+            sh('Xvfb :1 -screen 0 1600x1200x24+32 &')
             sh 'export'
             sh "ccache -z"
             sh('make px4_sitl_default sitl_gazebo')
@@ -82,7 +83,6 @@ pipeline {
 
     stage('ROS Tests') {
       steps {
-        sh('Xvfb :1 -screen 0 1600x1200x24+32 &')
         script {
           def missions = [
             [
