@@ -82,6 +82,7 @@ pipeline {
 
     stage('ROS Tests') {
       steps {
+        sh('Xvfb :1 -screen 0 1600x1200x24+32 &')
         script {
           def missions = [
             [
