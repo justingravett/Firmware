@@ -5,7 +5,7 @@ PX4_SRC_DIR=${DIR}/..
 
 Xvfb :1 -screen 0 1600x1200x24+32 &
 
-source /opt/ros/kinetic/setup.bash
+source /opt/ros/melodic/setup.bash
 mkdir -p ${PX4_SRC_DIR}/catkin_ws/src
 cd ${PX4_SRC_DIR}/catkin_ws/
 git clone --depth=1 https://github.com/PX4/avoidance.git src/avoidance/
