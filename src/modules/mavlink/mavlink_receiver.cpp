@@ -363,12 +363,14 @@ MavlinkReceiver::handle_message(mavlink_message_t *msg)
 	 * This allows to provide fake gps measurements to the system.
 	 */
 	if (_mavlink->get_hil_enabled()) {
+        PX4_INFO("HIL Enabled!");
 		switch (msg->msgid) {
 		case MAVLINK_MSG_ID_HIL_SENSOR:
 			handle_message_hil_sensor(msg);
 			break;
 
 		case MAVLINK_MSG_ID_HIL_STATE_QUATERNION:
+            PX4_INFO("RX: MAVLINK_MSG_ID_HIL_STATE_QUATERNION");
 			handle_message_hil_state_quaternion(msg);
 			break;
 
@@ -2360,6 +2362,16 @@ MavlinkReceiver::handle_message_hil_state_quaternion(mavlink_message_t *msg)
 {
 	mavlink_hil_state_quaternion_t hil_state;
 	mavlink_msg_hil_state_quaternion_decode(msg, &hil_state);
+
+    PX4_INFO("Alt: %d",hil_state.alt);
+    PX4_INFO("Lat: %d",hil_state.lat);
+    PX4_INFO("Long: %d",hil_state.lon);
+    PX4_INFO("Vx: %d",hil_state.vx);
+    PX4_INFO("Vy: %d",hil_state.vy);
+    PX4_INFO("Vz: %d",hil_state.vz);
+    PX4_INFO("Xacc: %d",hil_state.xacc);
+    PX4_INFO("Yacc: %d",hil_state.yacc);
+    PX4_INFO("Zacc: %d",hil_state.zacc);
 
 	uint64_t timestamp = hrt_absolute_time();
 

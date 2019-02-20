@@ -3820,8 +3820,9 @@ Commander *Commander::instantiate(int argc, char *argv[])
 	status = {};
 
 	if (instance) {
-		if (argc >= 2 && !strcmp(argv[1], "--hil")) {
+        if (argc >= 2 && !strcmp(argv[1], "--hil")) {
 			instance->enable_hil();
+            PX4_INFO("Commander::enable_hil");
 		}
 	}
 

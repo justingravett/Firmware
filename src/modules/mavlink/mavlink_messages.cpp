@@ -2959,7 +2959,7 @@ protected:
 			vehicle_status_s status = {};
 			_status_sub->update(&status);
 
-			if ((status.timestamp > 0) && (status.arming_state == vehicle_status_s::ARMING_STATE_ARMED)) {
+            if ((status.timestamp > 0) && (status.arming_state == vehicle_status_s::ARMING_STATE_ARMED)) { // (true)
 				/* translate the current system state to mavlink state and mode */
 				uint8_t mavlink_state;
 				uint8_t mavlink_base_mode;
@@ -3050,7 +3050,9 @@ protected:
 
 				msg.time_usec = hrt_absolute_time();
 				msg.mode = mavlink_base_mode;
-				msg.flags = 0;
+                msg.flags = 0;
+
+                PX4_INFO("mavlink_msg_hil_actuator_controls_send_struct");
 
 				mavlink_msg_hil_actuator_controls_send_struct(_mavlink->get_channel(), &msg);
 
@@ -4620,7 +4622,7 @@ public:
 
 	unsigned get_size()
 	{
-		return (_att_time > 0 || _gpos_time > 0) ? MAVLINK_MSG_ID_HIL_STATE_QUATERNION_LEN +
+        return (_att_time > 0 || _gpos_time > 0) ? MAVLINK_MSG_ID_HIL_STATE_QUATERNION_LEN +
 		       MAVLINK_NUM_NON_PAYLOAD_BYTES : 0;
 	}
 
