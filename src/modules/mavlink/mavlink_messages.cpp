@@ -3054,6 +3054,10 @@ protected:
 
                 PX4_INFO("mavlink_msg_hil_actuator_controls_send_struct");
 
+                int temp_time = (int)msg.time_usec;
+                PX4_INFO("Time_usec: %d",temp_time);
+                PX4_INFO("Mode: %hd",msg.mode);
+
 				mavlink_msg_hil_actuator_controls_send_struct(_mavlink->get_channel(), &msg);
 
 				return true;

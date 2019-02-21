@@ -820,6 +820,7 @@ Sensors *Sensors::instantiate(int argc, char *argv[])
 		switch (ch) {
 		case 'h':
 			hil_enabled = true;
+			PX4_INFO("Sensors HIL Enabled");
 			break;
 
 		case '?':
