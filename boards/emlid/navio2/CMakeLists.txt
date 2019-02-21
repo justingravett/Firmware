@@ -41,7 +41,7 @@ add_subdirectory(navio_sysfs_rc_in)
 ############################################################################
 
 add_custom_target(upload
-	COMMAND rsync -arh --progress ${CMAKE_RUNTIME_OUTPUT_DIRECTORY} ${PX4_SOURCE_DIR}/posix-configs/rpi/*.config ${PX4_SOURCE_DIR}/ROMFS pi@192.168.0.149:/home/pi 
+	COMMAND rsync -arh --progress ${CMAKE_RUNTIME_OUTPUT_DIRECTORY} ${PX4_SOURCE_DIR}/posix-configs/rpi/*.config ${PX4_SOURCE_DIR}/ROMFS pi@192.168.0.138:/home/pi 
 #"$ENV{AUTOPILOT_HOST}"
 	DEPENDS px4
 	COMMENT "uploading px4"
