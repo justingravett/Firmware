@@ -222,6 +222,9 @@ transition_result_t arming_state_transition(vehicle_status_s *status, const safe
 		}
 	}
 
+    PX4_INFO("armed->armed: %d", armed->armed);
+    PX4_INFO("status->arming_state: %d", status->arming_state);
+
 	if (ret == TRANSITION_DENIED) {
 		/* print to MAVLink and console if we didn't provide any feedback yet */
 		if (!feedback_provided) {

@@ -370,7 +370,7 @@ MavlinkReceiver::handle_message(mavlink_message_t *msg)
 			break;
 
 		case MAVLINK_MSG_ID_HIL_STATE_QUATERNION:
-            PX4_INFO("RX: MAVLINK_MSG_ID_HIL_STATE_QUATERNION");
+            //PX4_INFO("RX: MAVLINK_MSG_ID_HIL_STATE_QUATERNION");
 			handle_message_hil_state_quaternion(msg);
 			break;
 
@@ -2365,26 +2365,26 @@ MavlinkReceiver::handle_message_hil_state_quaternion(mavlink_message_t *msg)
 	mavlink_hil_state_quaternion_t hil_state;
 	mavlink_msg_hil_state_quaternion_decode(msg, &hil_state);
 
-    int temp_time = (int)hil_state.time_usec;
-    PX4_INFO("Time_usec: %d",temp_time);
-    PX4_INFO("Attitude_Quaternion[0]: %d.%.6d",(int)hil_state.attitude_quaternion[0], (int)((hil_state.attitude_quaternion[0]-(int)hil_state.attitude_quaternion[0])*1000000));
-    PX4_INFO("Attitude_Quaternion[1]: %d.%.6d",(int)hil_state.attitude_quaternion[1], (int)((hil_state.attitude_quaternion[1]-(int)hil_state.attitude_quaternion[1])*1000000));
-    PX4_INFO("Attitude_Quaternion[2]: %d.%.6d",(int)hil_state.attitude_quaternion[2], (int)((hil_state.attitude_quaternion[2]-(int)hil_state.attitude_quaternion[2])*1000000));
-    PX4_INFO("Attitude_Quaternion[3]: %d.%.6d",(int)hil_state.attitude_quaternion[3], (int)((hil_state.attitude_quaternion[3]-(int)hil_state.attitude_quaternion[3])*1000000));
-    PX4_INFO("Ind_Airspeed: %d",hil_state.ind_airspeed);
-    PX4_INFO("True_Airspeed: %d",hil_state.true_airspeed);
-    PX4_INFO("Rollspeed: %d.%.6d",(int)hil_state.rollspeed, (int)((hil_state.rollspeed-(int)hil_state.rollspeed)*1000000));
-    PX4_INFO("Pitchspeed: %d.%.6d",(int)hil_state.pitchspeed, (int)((hil_state.pitchspeed-(int)hil_state.pitchspeed)*1000000));
-    PX4_INFO("Yawspeed: %d.%.6d",(int)hil_state.yawspeed, (int)((hil_state.yawspeed-(int)hil_state.yawspeed)*1000000));
-    PX4_INFO("Alt: %d",hil_state.alt);
-    PX4_INFO("Lat: %d",hil_state.lat);
-    PX4_INFO("Long: %d",hil_state.lon);
-    PX4_INFO("Vx: %d",hil_state.vx);
-    PX4_INFO("Vy: %d",hil_state.vy);
-    PX4_INFO("Vz: %d",hil_state.vz);
-    PX4_INFO("Xacc: %d",hil_state.xacc);
-    PX4_INFO("Yacc: %d",hil_state.yacc);
-    PX4_INFO("Zacc: %d",hil_state.zacc);
+    //int temp_time = (int)hil_state.time_usec;
+    //PX4_INFO("Time_usec: %d",temp_time);
+    //PX4_INFO("Attitude_Quaternion[0]: %d.%.6d",(int)hil_state.attitude_quaternion[0], (int)((hil_state.attitude_quaternion[0]-(int)hil_state.attitude_quaternion[0])*1000000));
+    //PX4_INFO("Attitude_Quaternion[1]: %d.%.6d",(int)hil_state.attitude_quaternion[1], (int)((hil_state.attitude_quaternion[1]-(int)hil_state.attitude_quaternion[1])*1000000));
+    //PX4_INFO("Attitude_Quaternion[2]: %d.%.6d",(int)hil_state.attitude_quaternion[2], (int)((hil_state.attitude_quaternion[2]-(int)hil_state.attitude_quaternion[2])*1000000));
+    //PX4_INFO("Attitude_Quaternion[3]: %d.%.6d",(int)hil_state.attitude_quaternion[3], (int)((hil_state.attitude_quaternion[3]-(int)hil_state.attitude_quaternion[3])*1000000));
+    //PX4_INFO("Ind_Airspeed: %d",hil_state.ind_airspeed);
+    //PX4_INFO("True_Airspeed: %d",hil_state.true_airspeed);
+    //PX4_INFO("Rollspeed: %d.%.6d",(int)hil_state.rollspeed, (int)((hil_state.rollspeed-(int)hil_state.rollspeed)*1000000));
+    //PX4_INFO("Pitchspeed: %d.%.6d",(int)hil_state.pitchspeed, (int)((hil_state.pitchspeed-(int)hil_state.pitchspeed)*1000000));
+    //PX4_INFO("Yawspeed: %d.%.6d",(int)hil_state.yawspeed, (int)((hil_state.yawspeed-(int)hil_state.yawspeed)*1000000));
+    //PX4_INFO("Alt: %d",hil_state.alt);
+    //PX4_INFO("Lat: %d",hil_state.lat);
+    //PX4_INFO("Long: %d",hil_state.lon);
+    //PX4_INFO("Vx: %d",hil_state.vx);
+    //PX4_INFO("Vy: %d",hil_state.vy);
+    //PX4_INFO("Vz: %d",hil_state.vz);
+    //PX4_INFO("Xacc: %d",hil_state.xacc);
+    //PX4_INFO("Yacc: %d",hil_state.yacc);
+    //PX4_INFO("Zacc: %d",hil_state.zacc);
 
 	uint64_t timestamp = hrt_absolute_time();
 

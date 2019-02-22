@@ -749,6 +749,7 @@ Commander::handle_command(vehicle_status_s *status_local, const vehicle_command_
 		break;
 
 	case vehicle_command_s::VEHICLE_CMD_COMPONENT_ARM_DISARM: {
+        PX4_INFO("VEHICLE_CMD_COMPONENT_ARM_DISARM");
 
 			// Adhere to MAVLink specs, but base on knowledge that these fundamentally encode ints
 			// for logic state parameters
@@ -793,6 +794,7 @@ Commander::handle_command(vehicle_status_s *status_local, const vehicle_command_
 
 				} else {
 					cmd_result = vehicle_command_s::VEHICLE_CMD_RESULT_ACCEPTED;
+                    PX4_INFO("VEHICLE_CMD_RESULT_ACCEPTED");
 
 					/* update home position on arming if at least 500 ms from commander start spent to avoid setting home on in-air restart */
 					if (cmd_arms && (arming_res == TRANSITION_CHANGED) &&
@@ -2094,6 +2096,7 @@ Commander::run()
 						arming_ret = arming_state_transition(&status, safety, vehicle_status_s::ARMING_STATE_ARMED, &armed,
 										     !in_arming_grace_period /* fRunPreArmChecks */,
 										     &mavlink_log_pub, &status_flags, arm_requirements, hrt_elapsed_time(&commander_boot_timestamp));
+                        PX4_INFO("arming_ret: %d", arming_ret);
 
 						if (arming_ret != TRANSITION_CHANGED) {
 							px4_usleep(100000);

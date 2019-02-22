@@ -102,6 +102,7 @@ mixer_main(int argc, char *argv[])
 		return 1;
 	}
 
+    PX4_INFO("Success");
 	return 0;
 }
 

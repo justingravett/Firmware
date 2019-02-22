@@ -2961,6 +2961,7 @@ protected:
 
             if ((status.timestamp > 0) && (status.arming_state == vehicle_status_s::ARMING_STATE_ARMED)) { // (true)
 				/* translate the current system state to mavlink state and mode */
+                //PX4_INFO("Armed && (status.timestamp > 0)");
 				uint8_t mavlink_state;
 				uint8_t mavlink_base_mode;
 				uint32_t mavlink_custom_mode;
@@ -3052,11 +3053,13 @@ protected:
 				msg.mode = mavlink_base_mode;
                 msg.flags = 0;
 
-                PX4_INFO("mavlink_msg_hil_actuator_controls_send_struct");
+                //PX4_INFO("mavlink_msg_hil_actuator_controls_send_struct");
 
-                int temp_time = (int)msg.time_usec;
-                PX4_INFO("Time_usec: %d",temp_time);
-                PX4_INFO("Mode: %hd",msg.mode);
+                PX4_INFO("msg.controls[3]: %d.%.6d",(int)msg.controls[3], (int)((msg.controls[3]-(int)msg.controls[3])*1000000));
+
+                //int temp_time = (int)msg.time_usec;
+                //PX4_INFO("Time_usec: %d",temp_time);
+                //PX4_INFO("Mode: %hd",msg.mode);
 
 				mavlink_msg_hil_actuator_controls_send_struct(_mavlink->get_channel(), &msg);
 
